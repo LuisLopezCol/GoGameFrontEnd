@@ -1,0 +1,88 @@
+.btn_guardar {
+    background-color: #e7230d;
+    background-image: none;
+    color: #fff;
+    border-radius: 2px;
+    text-transform: capitalize;
+    width: auto;
+    padding: 15px 54px;
+    box-shadow: none;
+    outline: none;
+}
+
+label {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.contactenos_info {
+    margin-left: 30px;
+
+}
+
+.metodo {
+    color: rgba(0, 0, 0, .87);
+}
+
+.company-photo img {
+    width: 450px;
+}
+
+#findus {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 500px);
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 230px);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.photos-grid img {
+    height: 160px;
+    width: 230px;
+}
+
+@media (max-width: 1200px) {
+    .photos-grid {
+        grid-template-columns: repeat(2, 460px);
+    }
+
+    .photos-grid img {
+        height: 320px;
+        width: 460px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .photos-grid {
+        grid-template-columns: repeat(auto-fit, 230px);
+    }
+
+    .photos-grid img {
+        height: 160px;
+        width: 230px;
+    }
+}
+
+
+.title-home {
+    background-image: url(../../../assets/img/bannerTech.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-content: center;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--mainWhite);
+}
+
+.text-danger {
+    position: absolute;
+}

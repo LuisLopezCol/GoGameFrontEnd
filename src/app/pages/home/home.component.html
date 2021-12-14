@@ -1,0 +1,209 @@
+<section id="main_container">
+    <!------------------------------Carousel------------------------------>
+    <section id="main-carousel" class="w-100 d-flex justify-content-center flex-column my-4">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner ">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="../../../assets/img/carousel0.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="../../../assets/img/carousel4.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="../../../assets/img/carousel1.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item " data-bs-interval="3000">
+                    <img src="../../../assets/img/carousel3.png" class="d-block w-100" alt="...">
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <!-- Other components -->
+            <div class="deals d-flex row align-items-center justify-content-md-around">
+                <div class="bargain text-center">
+                    <h1><b>It's a bargain!</b></h1>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://media.gamestop.com/i/gamestop/60OffPSGames_286x286_D4Up.webp" class="card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <a href="#" class="card-link">
+                            <h5 class="card-title">Come catch up!</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://media.gamestop.com/i/gamestop/CM_DP_BoseHeadphones_5060_286x286_D4Up.webp"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="#" class="card-link">
+                            <h5 class="card-title">Take a look!</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://media.gamestop.com/i/gamestop/CyberPowerPC_45Off_286x286_D4Up.webp"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="#" class="card-link">
+                            <h5 class="card-title">Get it!</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://media.gamestop.com/i/gamestop/CM_DP_SamsungSSD_30Off_286x286_D4Up.webp"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="#" class="card-link">
+                            <h5 class="card-title">Hot deal!</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!------------------------------Coming Soon------------------------------>
+    <h1 class="title-home fw-bold my-4 center">¡Coming Soon! "January 2022"</h1>
+    <section id="main-brands">
+        <main class="brands-grid" id="main-brands">
+            <article class="brands quote" id="brands-1"></article>
+            <article class="brands" id="brands-2"></article>
+            <article class="brands" id="brands-3"></article>
+            <article class="brands" id="brands-4"></article>
+            <article class="brands" id="brands-5"></article>
+        </main>
+    </section>
+    <!------------------------------Brands------------------------------>
+    <h1 class="title-home fw-bold my-4 center">Our Brands</h1>
+    <main id="main-ourbrands">
+        <section *ngFor="let brands of brands" class="center">
+            <a class="center" href="{{brands.link}}" target="_blank"><img src={{brands.imagen}} alt=""></a>
+        </section>
+    </main>
+    <!------------------------------Testimonial------------------------------>
+    <h1 class=" title-home fw-bold my-4">Testimonials</h1>
+    <section class="center">
+        <article class="manager flow bg-primary-400 text-neutral-100">
+            <div class="">
+                <div><img src="../../../assets/img/p7.jpeg"></div>
+                <div>
+                    <h2 class="name">Alexander Garcia</h2>
+                    <p class="position">CEO GoGame</p>
+                </div>
+                <p>
+                    Adipisci provident odit totam rerum dolorum repellendus voluptatibus, quia laudantium odio, facilis
+                    har, necessitatibus iusto
+                    perspiciatis aliquam.</p>
+            </div>
+        </article>
+    </section>
+    <main class="testimonial-grid" id="main-testimonial">
+        <article class="testimonial grid-col-span-2 flow bg-primary-400 quote text-neutral-100">
+            <div class="flex">
+                <div>
+                    <img src="../../../assets/img/p6.jpeg">
+                </div>
+                <div>
+                    <h2 class="name">Juan Osorio</h2>
+                    <p class="position">Premiun Client</p>
+                </div>
+            </div>
+            <p>Laudantium illo sapiente commodi fugit atque accusantium explicabo unde repellat eos nesciunt cupiditate!
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium culpa tempore dolorum excepturi,
+                ipsam quis iure
+                illo sapiente commodi fugit atque accusantium explicabo unde repellat eos nesciunt cupiditate! Illum,
+                molestias.
+                Adipisci provident odit totam rerum dolorum repellendus voluptatibus, quia, necessitatibus reprehenderit
+                quod quo,
+                enim sapiente. Officia ut nisi voluptate! Obcaecati quae est magni laboriosam delectus iusto
+                perspiciatis aliquam
+                consequuntur eligendi?</p>
+        </article>
+        <article class="testimonial flow bg-secondary-400 text-neutral-100" id="testimonial-2">
+            <div class="flex">
+                <div>
+                    <img src="../../../assets/img/p2.jpeg">
+                </div>
+                <div>
+                    <h2 class="name">Luis López</h2>
+                    <p class="position">supplier</p>
+                </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>Adipisci provident odit totam rerum dolorum repellendus voluptatibus, quia, necessitatibus reprehenderit
+                quod quo,
+                enim sapiente. Officia ut nisi voluptate! Obcaecati quae delectus iusto
+                perspiciatis aliquam.</p>
+        </article>
+        <article class="testimonial flow bg-neutral-100 text-secondary-400" id="testimonial-3">
+            <div class="flex">
+                <div>
+                    <img src="../../../assets/img/p4.jpeg">
+                </div>
+                <div>
+                    <h2 class="name">Tatiana Borbon</h2>
+                    <p class="position">Marketing Manager</p>
+                </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet.
+            </p>
+            <p>Laudantium culpa tempore dolorum excepturi,
+                ipsam quis iure
+                illo sapiente commodi fugit atque accusantium explicabo unde repellat eos nesciunt cupiditate! Illum,
+                molestias.</p>
+        </article>
+        <article class="testimonial grid-col-span-2 flow bg-secondary-500 text-neutral-100" id="testimonial-4">
+            <div class="flex">
+                <div>
+                    <img src="../../../assets/img/p5.jpeg">
+                </div>
+                <div>
+                    <h2 class="name">John Guacaneme</h2>
+                    <p class="position">Premiun Client</p>
+                </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium culpa tempore dolorum excepturi,
+                ipsam quis iure
+                illo sapiente commodi fugit atque accusantium explicabo unde repellat eos nesciunt cupiditate! Illum,
+                molestias.
+                Adipisci provident odit totam rerum dolorum repellendus voluptatibus, quia, necessitatibus reprehenderit
+                quod quo,
+                enim sapiente. Officia ut nisi voluptate! Obcaecati quae est magni laboriosam delectus iusto
+                perspiciatis aliquam
+                consequuntur eligendi?</p>
+        </article>
+        <article class="testimonial flow bg-neutral-100 text-secondary-400" id="testimonial-5">
+            <div class="flex">
+                <div>
+                    <img src="../../../assets/img/p3.jpeg">
+                </div>
+                <div>
+                    <h2 class="name">Joan Portela</h2>
+                    <p class="position">Premiun Client</p>
+                </div>
+            </div>
+            <p>Adipisicing elit. Laudantium culpa tempore dolorum.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium culpa tempore dolorum excepturi,
+                ipsam quis iure
+                illo sapiente commodi fugit atque accusantium explicabo unde repellat eos nesciunt cupiditate! Illum,
+                molestias.
+                Adipisci provident odit totam rerum dolorum repellendus voluptatibus, quia, necessitatibus reprehenderit
+                quod quo,
+                enim sapiente. Maiores ut, molestiae officia atque obcaecati aliquam, voluptatibus animi
+                reiciendis neque porro odit totam rerum dolorum
+                adipisci veniam velit mollitia earum. Sunt fugiat aliquam, voluptatem perferendis omnis in repudiandae
+                provident
+                eligendi excepturi.</p>
+        </article>
+    </main>
+</section>

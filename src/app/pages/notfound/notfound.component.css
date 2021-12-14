@@ -1,0 +1,47 @@
+#not_found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0;
+    padding: 10%;
+    box-sizing: border-box;
+    background-image: url(../../../assets/img/desert.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#not_found img {
+    height: 300px;
+    width: 300px;
+    margin-top: 40px;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-not-found {
+    margin-top: 40px;
+    height: 100%;
+}
+
+.right-not-found h1 {
+    height: 100%;
+    font-family: 'Secular One', sans-serif;
+    font-size: 4em;
+    line-height: 1em;
+    font-weight: 800;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--mainWhite);
+    color: var(--color-black);
+}
+
+.right-not-found button {
+    background-color: var(--mainRed);
+    color: var(--mainWhite);
+    font-weight: 600;
+    font-size: 1.5em;
+    padding: 0.4em 0.8em;
+}

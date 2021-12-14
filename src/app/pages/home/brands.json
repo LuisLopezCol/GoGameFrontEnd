@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "imagen": "https://i.pinimg.com/originals/f0/3d/b1/f03db1f4d691d24f36d3b05d26767fec.png",
+    "link": "https://www.playstation.com/es-co/"
+  },
+  {
+    "id": 2,
+    "imagen": "https://1000marcas.net/wp-content/uploads/2020/01/Xbox-emblema.jpg",
+    "link": "https://www.xbox.com/es-CO"
+  },
+  {
+    "id": 7,
+    "imagen": "https://1000marcas.net/wp-content/uploads/2019/12/logo-Nintendo.png",
+    "link": "https://www.nintendo.com/es_CO/"
+  },
+  {
+    "id": 4,
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Windows_logo_-_2012.svg/2048px-Windows_logo_-_2012.svg.png",
+    "link": "https://www.microsoft.com/es-es/software-download/windows11"
+  },
+  {
+    "id": 3,
+    "imagen": "https://png.pngitem.com/pimgs/s/391-3915074_square-enix-collective-square-enix-collective-logo-hd.png",
+    "link": "https://square-enix-games.com/es_XL/home"
+  },
+  {
+    "id": 5,
+    "imagen": "https://www.gran-turismo.com/gtsport/decal/8359274715613790208_1.png",
+    "link": "https://www.sie.com/en/index.html"
+  },
+  {
+    "id": 6,
+    "imagen": "https://gaminguardian.com/wp-content/uploads/2017/05/ubisoftlogoFONT.png",
+    "link": "https://www.ubisoft.com/es-mx/"
+  },
+  {
+    "id": 8,
+    "imagen": "https://www.amd.com/system/files/11340-oculus-logo-hero-vertical-447x362.png",
+    "link": "https://www.oculus.com/?locale=es_ES"
+  },
+  {
+    "id": 9,
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Activision_Blizzard.svg/1200px-Activision_Blizzard.svg.png",
+    "link": "https://www.activision.com/content/atvi/activision/atvi-touchui/web/es/home.html"
+  },
+  {
+    "id": 10,
+    "imagen": "https://cdn2.unrealengine.com/Epic+Games+Node%2Fxlarge_whitetext_blackback_epiclogo_504x512_1529964470588-503x512-ac795e81c54b27aaa2e196456dd307bfe4ca3ca4.jpg",
+    "link": "https://www.epicgames.com/site/es-ES/home"
+  },
+  {
+    "id": 11,
+    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Gameloft.svg/245px-Gameloft.svg.png",
+    "link": "https://www.gameloft.com/"
+  },
+  {
+    "id": 12,
+    "imagen": "https://uspto.report/TM/78098431/mark.png",
+    "link": "https://www.bungie.net/ES"
+  }
+]

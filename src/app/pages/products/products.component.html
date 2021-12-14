@@ -1,0 +1,161 @@
+<div id="main_container" class="bg-light">
+    <h1 class="title-home d-flex justify-content-center fw-bold my-4">¡Shop And Save On The 365 HIT Games On The
+        Market!</h1>
+    <!------------------------------- Searching ------------------------------->
+    <div class="w-100 my-2 center">
+        <form class="search-bar center col-lg-5 col-md-8 col-sm-12 my-1">
+            <input #search class="form-control me-2" type="search" placeholder="You name it, We will find it for you..."
+                aria-label="Search">
+            <button #searchbutton class="btn fs-6 links me-2" (click)="searchProduct(search.value, true)"
+                type="button"><i class="fas fa-search"></i></button>
+        </form>
+        <div class="flex-row center col-4 my-1">
+            <h2 class="col-4 d-flex justify-content-center fw-bold me-2 pt-3">Filter by genre:</h2>
+            <div #searchbutton class="col-4 fs-5 links me-2 d-flex center filter-genre"
+                (click)="filterGenre(genre.value)" type="button"><i class="fas fa-search"></i></div>
+            <form class="search-bar fs-5 col-4 ms-2 center">
+                <select name="select form-control w-100" #genre>
+                    <option value="All" selected>All</option>
+                    <option value="Action%20RPG">Action RPG</option>
+                    <option value="ARPG">ARPG</option>
+                    <option value="Battle%20Royale">Battle Royale</option>
+                    <option value="Card">Card / Card Game</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="MMO">MMO</option>
+                    <option value="MMORPG">MMORPG</option>
+                    <option value="MOBA">MOBA</option>
+                    <option value="Racing">Racing</option>
+                    <option value="Shooter">Shooter</option>
+                    <option value="Social">Social</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Strategy">Strategy</option>
+                </select>
+            </form>
+        </div>
+    </div>
+    <!------------------------------- Cards ------------------------------->
+    <section id="cards_container" class="bg-light mb-5">
+        <section id="data_personajes" class="bg-light mt-1" *ngFor="let game of listVideoGames;">
+            <div (click)="updateModal(game, true)" class="shop-card links" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                <div><img src="{{game.thumbnail}}"></div>
+                <h3 class="mainHeaderCard d-flex justify-content-center my-2">{{game.title}}</h3>
+                <div class="modal-footer d-flex justify-content-center flex-column">
+                    <p>PRICE: USD$ {{game.price}}</p>
+                    <div class="stars my-1 d-flex flex-row">
+                        <div>
+                            <i class="fa fa-star gold"></i>
+                            <i class="fa fa-star gold"></i>
+                        </div>
+                        <div *ngIf="game.id%2 == 0">
+                            <i class="fa fa-star gold"></i>
+                            <i class="fa fa-star gold"></i>
+                        </div>
+                        <div *ngIf="game.id%2 != 0">
+                            <i class="fa fa-star gold"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <div><i class="fa fa-star" [ngClass]="game.id%4 == 0 ? 'gold' : ''"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!------------------------------- Modal ------------------------------->
+        <div [ngStyle]="{'display': mdlSampleIsOpen ? 'block' : 'none', 'opacity': 1}" class=" modal fade"
+            id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-content bg-light">
+                    <div class="modal-body bg-light m-0">
+                        <!--------- Modal Content --------->
+                        <section id="data_personajesModal" class="bg-light d-flex justify-content-center">
+                            <section class="modal-card bg-light">
+                                <div class="m-0 p-0 d-flex justify-content-end">
+                                    <button (click)="closeModal(false)" mat-icon-button color="primary"
+                                        aria-label="close dialog" mat-dialog-close data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <mat-icon>close</mat-icon>
+                                    </button>
+                                </div>
+                                <h3 class="mainHeaderText d-flex justify-content-center  mt-1 mb-3 p-0">
+                                    {{ModalVidoGame.title}}
+                                </h3>
+                                <div class="pictureModal links">
+                                    <img src="{{ModalVidoGame.thumbnail}}" alt="" class="productModal-img">
+                                </div>
+                                <section id="info_container">
+                                    <div class="genre">
+                                        <h5 class="subHeaderText m-0">GENRE:</h5>
+                                        <div class="contentText">{{ModalVidoGame.genre}}</div>
+                                    </div>
+                                    <div class="platform">
+                                        <h5 class="subHeaderText m-0">PLATFOMR:</h5>
+                                        <div class="contentText">{{ModalVidoGame.platform}}</div>
+                                    </div>
+                                    <div class="publisher">
+                                        <h5 class="subHeaderText m-0">PUBLISHER:</h5>
+                                        <div class="contentText">{{ModalVidoGame.publisher}}</div>
+                                    </div>
+                                    <div class="developer">
+                                        <h5 class="subHeaderText m-0">DEVELOPER:</h5>
+                                        <div class="contentText">{{ModalVidoGame.developer}}</div>
+                                    </div>
+                                    <div class="release-date">
+                                        <h5 class="subHeaderText m-0">RELEASE DATE:</h5>
+                                        <div class="contentText">{{ModalVidoGame.release_date}}</div>
+                                    </div>
+                                    <div class="more-info">
+                                        <h5 class="subHeaderText m-0">MORE INFO:</h5>
+                                        <a href={{ModalVidoGame.game_url}} class="links contentText"
+                                            target="_blank">OFFICIAL
+                                            WEBSITE</a>
+                                    </div>
+                                    <div class="description">
+                                        <h5 class="subHeaderText m-0">DESCRIPTION:</h5>
+                                        <p class="description">{{ModalVidoGame.short_description}}</p>
+                                    </div>
+                                </section>
+                                <div class="modal-footer contentText d-flex flex-row justify-content-evenly">
+                                    <div class="my-2 fw-bold">PRICE: USD$ {{ModalVidoGame.price}}
+                                    </div>
+                                    <div class="stars my-2 d-flex flex-row">
+                                        <div>
+                                            <i class="fa fa-star gold"></i>
+                                            <i class="fa fa-star gold"></i>
+                                        </div>
+                                        <div *ngIf="ModalVidoGame.id%2 == 0">
+                                            <i class="fa fa-star gold"></i>
+                                            <i class="fa fa-star gold"></i>
+                                        </div>
+                                        <div *ngIf="ModalVidoGame.id%2 != 0">
+                                            <i class="fa fa-star gold"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div *ngIf="ModalVidoGame.id%4 == 0">
+                                            <i class="fa fa-star gold"></i>
+                                        </div>
+                                        <div *ngIf="ModalVidoGame.id%4 != 0">
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="!ModalVidoGame.amount" (click)="SaveProducts(ModalVidoGame)"
+                                        (click)="DisableProduct(ModalVidoGame._id)" mat-raised-button color="primary"
+                                        class="w-100" data-bs-dismiss="modal">Add to cart <i
+                                            class="fa fa-cart-plus fs-5 mb-2"></i>
+                                    </button>
+                                    <button *ngIf="ModalVidoGame.amount" disabled mat-raised-button color="primary"
+                                        class="w-100" data-bs-dismiss="modal">Already in the cart</button>
+                                </div>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section>
+    <!------------------------------- Buttons to navigate throught the shopping options ------------------------------->
+    <!-- <div class="button-pages pt-5 pb-5 d-flex justify-content-center" id="button_pagesPN"></div> -->
+</section>

@@ -1,0 +1,134 @@
+<div class="container col-12">
+    <!------------------------ Data to find us ------------------------>
+    <h1 class="title-home fw-bold my-5 center">Our Location</h1>
+    <section id="findus" class="row d-flex justify-content-center">
+        <div class="mapouter col-6 col-lg-6 col-sm-12 center">
+            <div class="gmap_canvas"><iframe width="450" height="350" id="gmap_canvas"
+                    src="https://maps.google.com/maps?q=bit%20bogota&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                    href="https://123movies-to.org"></a><br>
+                <style>
+                    .mapouter {
+                        position: relative;
+                        text-align: right;
+                        height: 350px;
+                        width: 450px;
+                    }
+                </style>
+                <style>
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        height: 350px;
+                        width: 450px;
+                    }
+                </style>
+            </div>
+        </div>
+        <div class="mapouter col-6 col-lg-6 col-sm-12 center">
+            <div class="company-photo">
+                <img src="https://icdn.dtcn.com/image/digitaltrends_es/google-londres-720x720.jpg" alt="">
+                <p class="center mt-4"> Carrera 13 # 54 - 55 _ Bogotá, Colombia </p>
+            </div>
+        </div>
+        <div class="photos-grid">
+            <img src="https://static.timesofisrael.com/www/uploads/2021/06/Verbit-Compnay-Photo-by-Eric-Sultan-3-e1623147226939.jpg"
+                alt="">
+            <img src="https://www.esmadrid.com/sites/default/files/styles/content_type_full/public/recursosturisticos/infoturistica/campus.jpg?itok=Qe933Q0Z"
+                alt="">
+            <img src="https://www.world-architects.com/images/Projects/72/72/30/43857e51751148c2a8bdd8871bb9309c/43857e51751148c2a8bdd8871bb9309c.6e7b65d0.jpg?1493401717"
+                alt="">
+            <img src="https://images.adsttc.com/media/images/5b90/9b27/f197/cc71/1d00/0aa5/newsletter/1.jpg?1536203535"
+                alt="">
+        </div>
+    </section>
+    <!------------------------ Contact ------------------------>
+    <h1 class="title-home fw-bold my-5 center">Contact Us</h1>
+    <p class="text-left mb-4">Send us a message and we’ll get back to you within 24 hours.</p>
+    <div class="col-12 d-flex flex-md-row flex-row mb-5">
+        <!------ Contact form ------>
+        <form class="col-6 col-lg-6 col-md-8 contact-us-form" [formGroup]="contactForm">
+            <div class="d-flex flex-md-row flex-column">
+                <div class=" col-md-6 pl-md-0 pr-md-1 p-0 pe-3">
+                    <label class="form-control-label mt-1 ml-5">Name</label>
+                    <input type="text" class="form-control me-3" id="name" placeholder="Name" required="" value=""
+                        maxlength="250" formControlName="name">
+                    <span class="text-danger"
+                        *ngIf="contactForm.get('name')?.hasError('required') && contactForm.get('name')?.touched">The
+                        full
+                        name is required</span>
+                </div>
+                <div class="form-group col-md-6 pr-md-0 pl-md-1 p-0 required">
+                    <label class="form-control-label label-email mt-1 mr-5" for="email">
+                        Email
+                    </label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" required="" value=""
+                        maxlength="250" autocomplete="email" formControlName="email">
+                    <span class=" text-danger"
+                        *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched">The
+                        email is required</span>
+                    <span class="text-danger" *ngIf="contactForm.get('email')?.hasError('email')">Please type
+                        a
+                        valid
+                        email</span>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label class="form-control-label">Order Number</label>
+                <input type="text" inputmode="numeric" placeholder="Order Number (optional)" class="form-control"
+                    id="orderNumber" value="" maxlength="25" formControlName="idsale">
+            </div>
+            <div class="form-group required mt-3">
+                <label class="form-control-label" for="message">Message</label>
+                <textarea class="form-control" id="message" placeholder="Message" data-attr="2000" required="" value=""
+                    maxlength="2000" formControlName="message"></textarea>
+                <span class="text-danger"
+                    *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched">The
+                    The message is required</span>
+            </div>
+            <div class="d-flex justify-content-end  max-characters-limit">
+                <span id="characterCount">{{remainingText}}</span>
+                <span>characters left</span>
+            </div>
+            <div class="contactuscaptcha">
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <button (click)="postContact()" type="submit" [disabled]="contactForm.invalid" name="save"
+                        class="btn btn-save btn-block contact-us-submit-btn btn_guardar">Submit</button>
+                </div>
+            </div>
+        </form>
+        <!------  Data contact  ------>
+        <div class="col-lg-3 col-md-4 mb-3 contactenos_info pl-md-4 d-fex align-items-center">
+            <div class="">
+                <div class="offset-2 metodo phone-no mb-3 d-flex flex-row">
+                    <i class="fas fa-phone  fs-5"></i>
+                    <div class="sub-text">
+                        <a><u>&nbsp; &nbsp; +1 01 8000 123 456 </u></a>
+                        <p> &nbsp; &nbsp;&nbsp; &nbsp; Monday - Saturday: 07 AM - 08 PM <br> &nbsp; &nbsp; &nbsp; &nbsp;
+                            Sundays: 8 AM - 6 PM </p>
+                    </div>
+                </div>
+                <div class="offset-2 metodo chat mb-3 d-flex flex-row">
+                    <i class="fab fa-whatsapp-square fs-5"></i>
+                    <div class="sub-text">
+                        <a class="chat-with-us-link" href="https://web.whatsapp.com/" target="_blank"
+                            style="color:#000000;">&nbsp; &nbsp; +1 300 123 4567</a>
+                        <p> &nbsp; &nbsp; &nbsp; &nbsp;Monday - Saturday: 07 AM - 08 PM <br> &nbsp; &nbsp; &nbsp; &nbsp;
+                            Friday 8 AM - 6 PM </p>
+                    </div>
+                </div>
+                <div class="offset-2 metodo email mb-1 d-flex flex-row">
+                    <i class="fas fa-envelope-open fs-5"></i>
+                    <div>
+                        <a href="mailto:Contact@GoGame.com?subject = Feedback&body = Message" style="color:#000000;">
+                            <u> &nbsp; &nbsp; Contact@GoGame.com </u></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

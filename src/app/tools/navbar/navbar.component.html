@@ -1,0 +1,249 @@
+<!---------------------------- Banner at top  ---------------------------->
+<section id="topHeader" class="links">
+    Shop Cyber Week Now
+</section>
+<!---------------------------- Navbar  ---------------------------->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <section class="navbar-brand d-flex justify-content-center col-2 m-0 p-0" routerLink="/home"><img
+                class="navbar-logo" src="../../../assets/img/WhiteLogo.png" alt=""></section>
+        <!-- Collapse navbar  -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Menu Options  -->
+        <div class="collapse navbar-collapse offset-6 col-4" id="navbarNavAltMarkup">
+            <div class="navbar-nav col-12 d-flex justify-content-between">
+                <div class="nav-item links" routerLink="/home">
+                    <img src="../../../assets/img/roundedicon.png" style="height: 24px;">
+                    <p class="m-0 mt-1">Home</p>
+                </div>
+                <div class="nav-item links" routerLink="/contact">
+                    <mat-icon> contact_mail</mat-icon>
+                    <p class="m-0 mt-1">Contact Us</p>
+                </div>
+                <div class="nav-item links" routerLink="/products">
+                    <mat-icon>store</mat-icon>
+                    <p class="m-0 mt-1">Our Products</p>
+                </div>
+                <div class="nav-item links">
+                    <mat-icon>person_pin</mat-icon>
+                    <p class="m-0 mt-1">Sign In</p>
+                </div>
+                <div (click)="ShowCart()" class="nav-item links me-4">
+                    <mat-icon matBadge="{{itemsTotal}}" class="fs-4 test" matBadgeColor="warn">
+                        shopping_cart</mat-icon>
+                    <p class="m-0 mt-1">Your Cart</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-------------- Cart --------------->
+<div #cartOverlay class="cart-overlay">
+    <!--------------------- Cart Total Summary ----------------------->
+    <section #cartDom class="cart">
+        <span (click)="HideCart()" class="close-cart"><i class="fa fa-window-close fs-2"></i></span>
+        <div class="center mt-1 mb-3"><img src="../../../assets/img/WhiteLogo.png" class="logo-cart"></div>
+        <h2>YOUR ITEMS:</h2>
+        <section class="cart-content" *ngFor="let item of carProduct;">
+            <img src={{item.thumbnail}} alt="" srcset="">
+            <div class="cart-content-info">
+                <h4>{{item.title}}</h4>
+                <h5>USD$ {{item.price}}</h5>
+                <span (click)="RemoveProduct(item._id)" class="remove-item">Remover</span>
+            </div>
+            <div class="cart-chevron">
+                <button (click)="IncreaseProduct(item._id)" class="button-none"><i
+                        class="fa fa-chevron-up"></i></button>
+                <p class="item-amount my-3 p-0">{{item.amount}}</p>
+                <button (click)="DecreaseProduct(item._id)" class="button-none"><i
+                        class="fa fa-chevron-down"></i></button>
+            </div>
+        </section>
+        <div class="line"></div>
+        <div class="cart-footer">
+            <h3>TOTAL USD: ${{cartTotal}}</h3>
+            <div class="d-flex justify-content-end w-100 my-2">
+                <button mat-raised-button class="clear-cart m-2" color="warn" (click)="AreYouSureDeleteCart()">CLEAR
+                    ALL</button>
+                <button mat-raised-button class="proceed-btn bg-success m-2" color="success"
+                    (click)="ShowDelivery()">¡CHECKOUT!</button>
+            </div>
+        </div>
+    </section>
+    <!--------------------- Information for delivery----------------------->
+    <section #delivery id="delivery_info">
+        <span (click)="HideCart()" class="close-cart"><i class="fa fa-window-close fs-2"></i></span>
+        <div class="center mt-1 mb-3"><img src="../../../assets/img/WhiteLogo.png" class="logo-cart"></div>
+        <h1 class="titleD m-0 p-0 col-12">Delivery Information:</h1>
+        <form class="w-100" [formGroup]="deliveryForm">
+            <div class="full-name m-2">
+                <label class="form-label">Full Name:</label>
+                <input type="text" class="form-control" formControlName="name" highlight-on-error>
+                <span class="text-danger"
+                    *ngIf="deliveryForm.get('name')?.hasError('required') && deliveryForm.get('name')?.touched">The full
+                    name is required</span>
+            </div>
+            <div class="email m-2">
+                <label class="form-label">Email:</label>
+                <input type="text" class="form-control" formControlName="email" data-validate="required,email">
+                <span class=" text-danger"
+                    *ngIf="deliveryForm.get('email')?.hasError('required') && deliveryForm.get('email')?.touched">The
+                    email is required</span>
+                <span class="text-danger" *ngIf="deliveryForm.get('email')?.hasError('email')">Please type
+                    a
+                    valid
+                    email</span>
+            </div>
+            <div class="state m-2">
+                <label class="form-label">State:</label>
+                <input type="text" class="form-control" formControlName="state">
+                <span class="text-danger"
+                    *ngIf="deliveryForm.get('state')?.hasError('required') && deliveryForm.get('state')?.touched">The
+                    satate is
+                    required</span>
+            </div>
+            <div class="city m-2">
+                <label class="form-label">City:</label>
+                <input type="text" class="form-control" formControlName="city">
+                <span class="text-danger"
+                    *ngIf="deliveryForm.get('city')?.hasError('required') && deliveryForm.get('city')?.touched">The city
+                    is
+                    required</span>
+            </div>
+            <div class="address m-2">
+                <label class="form-label">Address:</label>
+                <input type="text" class="form-control" formControlName="address">
+                <span class="text-danger"
+                    *ngIf="deliveryForm.get('address')?.hasError('required') && deliveryForm.get('address')?.touched">The
+                    address is
+                    required</span>
+            </div>
+            <div class="zip-code m-2">
+                <label class="form-label">Zip Code:</label>
+                <input type="number" class="form-control" formControlName="zipcode">
+                <span class="text-danger"
+                    *ngIf="deliveryForm.get('zipcode')?.hasError('required') && deliveryForm.get('zipcode')?.touched">The
+                    zip-code
+                    is required</span>
+            </div>
+            <div class="cellphone m-2">
+                <label class="form-label">Cellphone:</label>
+                <input type="number" class="form-control" formControlName="cellphone">
+                <span class="text-danger"
+                    *ngIf="deliveryForm.get('cellphone')?.hasError('required') && deliveryForm.get('cellphone')?.touched">The
+                    cellphone is required</span>
+                <span class="text-danger"
+                    *ngIf="deliveryForm.get('cellphone')?.hasError('pattern') || deliveryForm.get('cellphone')?.hasError('minLenght') || deliveryForm.get('cellphone')?.hasError('maxLenght')">The
+                    cellphone must be a
+                    number and has 10 digits</span>
+            </div>
+            <div class="references m-2">
+                <label class="form-label">Other references:</label>
+                <input type="text" class="form-control" formControlName="references">
+            </div>
+            <div class="footer-cart">
+                <div class="line"></div>
+                <div class="cart-footer">
+                    <h3>TOTAL USD: ${{cartTotal}}</h3>
+                    <div class="d-flex justify-content-end w-100 my-2">
+                        <button mat-raised-button class="clear-cart m-2" color="warn"
+                            (click)="RemoveDelivery()">PREV</button>
+                        <button [disabled]="deliveryForm.invalid" type="submit" mat-raised-button
+                            class="proceed-btn bg-success m-2" color="success" (click)="ShowPayment()">NEXT</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <!--------------------- Select Payment Method----------------------->
+    <section #payment id="payment_method">
+        <span (click)="HideCart()" class="close-cart"><i class="fa fa-window-close fs-2"></i></span>
+        <div class="center mt-1 mb-3"><img src="../../../assets/img/WhiteLogo.png" class="logo-cart"></div>
+        <h1 class="m-0 p-0 col-12">Payment Method:</h1>
+        <form [formGroup]="paymentForm">
+            <div class="type-credit m-2">
+                <label class="form-label">Select your Credit Card:</label>
+                <form class="d-flex justify-content-between">
+                    <input type="checkbox" name="visa" id="visa" [checked]="currentlyChecked === check_box_type.VISA"
+                        (click)="selectCheckBox(check_box_type.VISA)" #visa>
+                    <label for="visa"><img src="../../../assets/img/CC/visa.png" alt=""></label>
+                    <input type="checkbox" type="checkbox" name="maestro" id="maestro"
+                        [checked]="currentlyChecked === check_box_type.MAESTRO"
+                        (click)="selectCheckBox(check_box_type.MAESTRO)" #maestro>
+                    <label for="maestro"><img src="../../../assets/img/CC/maestro.png" alt=""></label>
+                    <input type="checkbox" type="checkbox" name="american" id="american"
+                        [checked]="currentlyChecked === check_box_type.AMERICAN"
+                        (click)="selectCheckBox(check_box_type.AMERICAN)" #american>
+                    <label for="american"><img src="../../../assets/img/CC/american-express.png" alt=""></label>
+                    <input type="checkbox" type="checkbox" name="paypal" id="paypal"
+                        [checked]="currentlyChecked === check_box_type.PAYPAL"
+                        (click)="selectCheckBox(check_box_type.PAYPAL)" #paypal>
+                    <label for="paypal"><img src="../../../assets/img/CC/paypal.png" alt=""></label>
+                    <input type="checkbox" type="checkbox" name="apple" id="apple"
+                        [checked]="currentlyChecked === check_box_type.APPLE"
+                        (click)="selectCheckBox(check_box_type.APPLE)" #apple>
+                    <label for="apple"><img src="../../../assets/img/CC/apple-pay.png" alt=""></label>
+                    <input type="checkbox" type="checkbox" name="google" id="google"
+                        [checked]="currentlyChecked === check_box_type.GOOGLE"
+                        (click)="selectCheckBox(check_box_type.GOOGLE)" #google>
+                    <label for="google"><img src="../../../assets/img/CC/google-pay.png" alt=""></label>
+                </form>
+            </div>
+            <div class="name-credit m-2">
+                <label class="form-label">Full Name:</label>
+                <input type="text" class="form-control" formControlName="cardname">
+                <span class="text-danger fw-bold"
+                    *ngIf="paymentForm.get('cardname')?.hasError('required') && paymentForm.get('cardname')?.touched">The
+                    name as stated in the credit card is required</span>
+            </div>
+            <div class="credit-card m-2">
+                <label class="form-label">Credit Card Number:</label>
+                <input type="text" class="form-control" formControlName="cardnumber">
+                <span class="text-danger fw-bold"
+                    *ngIf="paymentForm.get('cardnumber')?.hasError('required') && paymentForm.get('cardnumber')?.touched">The
+                    credit card number is required</span>
+                <span class="text-danger fw-bold"
+                    *ngIf="paymentForm.get('cardnumber')?.hasError('minLenght') || paymentForm.get('cardnumber')?.hasError('maxLenght')">The
+                    credit card number number must have 12 numbers</span>
+            </div>
+            <div class="expiration m-2">
+                <label class="form-label">Expiration Date:</label>
+                <input type="text" class="form-control" formControlName="cardexpire">
+                <span class="text-danger fw-bold"
+                    *ngIf="paymentForm.get('cardexpire')?.hasError('required') && paymentForm.get('cardexpire')?.touched">The
+                    expiration date is required</span>
+                <span class="text-danger fw-bold" *ngIf="paymentForm.get('pattern')?.hasError('required')">Please type
+                    with
+                    the correct format "MM/YY"</span>
+            </div>
+            <div class="sec-code m-2">
+                <label class="form-label">Security Code:</label>
+                <input type="number" class="form-control" formControlName="cardcode">
+                <span class="text-danger fw-bold"
+                    *ngIf="paymentForm.get('cardcode')?.hasError('minLenght') || paymentForm.get('cardcode')?.hasError('maxLenght')">The
+                    credit zip-code must have bbetween 3 to 4 numbers</span>
+                <span class="text-danger fw-bold"
+                    *ngIf="paymentForm.get('cardcode')?.hasError('required') && paymentForm.get('cardcode')?.touched">The
+                    code is required</span>
+            </div>
+            <div class="footer-payment">
+                <div class="line"></div>
+                <div class="cart-footer">
+                    <h3>TOTAL USD: ${{cartTotal}}</h3>
+                    <div class="d-flex justify-content-end w-100 my-2">
+                        <button mat-raised-button class="clear-cart m-2" color="warn"
+                            (click)="RemovePayment()">PREV</button>
+                        <button [disabled]="paymentForm.invalid" type=" submit" mat-raised-button
+                            class="proceed-btn bg-success m-2" color="success" (click)="CheckoutComnpleted()">¡PAY
+                            NOW!</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+<!-------------- End of Cart --------------->
