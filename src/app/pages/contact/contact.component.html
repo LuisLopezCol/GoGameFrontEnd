@@ -50,7 +50,7 @@
         <form class="col-6 col-lg-6 col-md-8 contact-us-form" [formGroup]="contactForm">
             <div class="d-flex flex-md-row flex-column">
                 <div class=" col-md-6 pl-md-0 pr-md-1 p-0 pe-3">
-                    <label class="form-control-label mt-1 ml-5">Name</label>
+                    <label class="form-control-label mt-1 ml-5">Name:</label>
                     <input type="text" class="form-control me-3" id="name" placeholder="Name" required="" value=""
                         maxlength="250" formControlName="name">
                     <span class="text-danger"
@@ -59,9 +59,7 @@
                         name is required</span>
                 </div>
                 <div class="form-group col-md-6 pr-md-0 pl-md-1 p-0 required">
-                    <label class="form-control-label label-email mt-1 mr-5" for="email">
-                        Email
-                    </label>
+                    <label class="form-control-label label-email mt-1 mr-5" for="email">Email:</label>
                     <input type="email" class="form-control" id="email" placeholder="Email" required="" value=""
                         maxlength="250" autocomplete="email" formControlName="email">
                     <span class=" text-danger"
@@ -74,21 +72,21 @@
                 </div>
             </div>
             <div class="form-group mt-3">
-                <label class="form-control-label">Order Number</label>
+                <label class="form-control-label">Order Number:</label>
                 <input type="text" inputmode="numeric" placeholder="Order Number (optional)" class="form-control"
                     id="orderNumber" value="" maxlength="25" formControlName="idsale">
             </div>
             <div class="form-group required mt-3">
-                <label class="form-control-label" for="message">Message</label>
-                <textarea class="form-control" id="message" placeholder="Message" data-attr="2000" required="" value=""
-                    maxlength="2000" formControlName="message"></textarea>
+                <label class="form-control-label" for="message">Message:</label>
+                <textarea #test class="form-control" id="message" placeholder="Message" data-attr="2000" required=""
+                    value="" maxlength="2000" formControlName="message" ng-trim="false" ng-model="countmodel"
+                    (keypress)="valueChange(test.value)" (keydown)="valueChange(test.value)"></textarea>
                 <span class="text-danger"
                     *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched">The
                     The message is required</span>
-            </div>
-            <div class="d-flex justify-content-end  max-characters-limit">
-                <span id="characterCount">{{remainingText}}</span>
-                <span>characters left</span>
+                <div class="d-flex justify-content-end  max-characters-limit">
+                    <span id="characterCount">{{remainingText}} characters left</span>
+                </div>
             </div>
             <div class="contactuscaptcha">
             </div>
@@ -112,7 +110,7 @@
                 </div>
                 <div class="offset-2 metodo chat mb-3 d-flex flex-row">
                     <i class="fab fa-whatsapp-square fs-5"></i>
-                    <div class="sub-text">
+                    <div class="">
                         <a class="chat-with-us-link" href="https://web.whatsapp.com/" target="_blank"
                             style="color:#000000;">&nbsp; &nbsp; +1 300 123 4567</a>
                         <p> &nbsp; &nbsp; &nbsp; &nbsp;Monday - Saturday: 07 AM - 08 PM <br> &nbsp; &nbsp; &nbsp; &nbsp;
@@ -129,6 +127,4 @@
             </div>
         </div>
     </div>
-
-
 </div>

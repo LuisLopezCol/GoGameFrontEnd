@@ -14,7 +14,7 @@
             <div #searchbutton class="col-4 fs-5 links me-2 d-flex center filter-genre"
                 (click)="filterGenre(genre.value)" type="button"><i class="fas fa-search"></i></div>
             <form class="search-bar fs-5 col-4 ms-2 center">
-                <select name="select form-control w-100" #genre>
+                <select class="select form-control w-100" #genre>
                     <option value="All" selected>All</option>
                     <option value="Action%20RPG">Action RPG</option>
                     <option value="ARPG">ARPG</option>
@@ -34,10 +34,14 @@
             </form>
         </div>
     </div>
+    <pagination-controls class="d-flex justify-content-center fs-5 mb-2" (pageChange)="page=$event" previousLabel=Prev
+        nextLabel=Next>
+    </pagination-controls>
     <!------------------------------- Cards ------------------------------->
     <section id="cards_container" class="bg-light mb-5">
-        <section id="data_personajes" class="bg-light mt-1" *ngFor="let game of listVideoGames;">
-            <div (click)="updateModal(game, true)" class="shop-card links" data-bs-toggle="modal"
+        <section id="data_personajes" class="bg-light mt-1"
+            *ngFor="let game of listVideoGames |  paginate: { itemsPerPage: 40, currentPage: page}">
+            <div (click)=" updateModal(game, true)" class="shop-card links" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 <div><img src="{{game.thumbnail}}"></div>
                 <h3 class="mainHeaderCard d-flex justify-content-center my-2">{{game.title}}</h3>
@@ -154,8 +158,7 @@
             </div>
         </div>
     </section>
+    <pagination-controls class="w-100 d-flex justify-content-center fs-5" (pageChange)="page=$event" previousLabel=Prev
+        nextLabel=Next>
+    </pagination-controls>
 </div>
-<section>
-    <!------------------------------- Buttons to navigate throught the shopping options ------------------------------->
-    <!-- <div class="button-pages pt-5 pb-5 d-flex justify-content-center" id="button_pagesPN"></div> -->
-</section>

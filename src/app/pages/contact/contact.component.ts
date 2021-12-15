@@ -29,9 +29,9 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  valueChange(value: any) {
-    this.remainingText = 2000 - value;
- }
+  valueChange(value: string) {
+    this.remainingText = 2000 - value.length;
+  }
 
   //-------Data from reactive form and send it to DB-------
   postContact(){
@@ -39,8 +39,7 @@ export class ContactComponent implements OnInit {
       name: this.contactForm.get('name')?.value,
       email: this.contactForm.get('email')?.value,
       idsale: this.contactForm.get('idsale')?.value,
-      message: this.contactForm.get('message')?.value,
-    }
+      message: this.contactForm.get('message')?.value,}
     let contact: any = {};
     contact = CONTACT;
     this.videoGamesSvc.postContact(contact).subscribe(
@@ -53,16 +52,13 @@ export class ContactComponent implements OnInit {
         timer: 3000
       })
       this.contactForm.reset();
-    },
-    error => {
-      console.error("couldn't post because", error)
+    },error => {console.error("couldn't post because", error);
       Swal.fire({
         position: 'center',
         icon: 'warning',
         title: 'Sorry, there was a mistake, please try again',
         showConfirmButton: false,
         timer: 3000
-      })
-    });
+      })})
   }
 }

@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 export class ProductsComponent implements OnInit {
 
   //----------------------Parameters----------------------
+  //Pagination
+  public page: number = 1;
   //To be uesd to store the JOSN imported from the DB
   listVideoGames: any= [];
   // listVideoGames: videoGameModel[] = [];

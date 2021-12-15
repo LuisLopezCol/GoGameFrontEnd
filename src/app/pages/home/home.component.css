@@ -70,6 +70,9 @@ select {
 }
 
 /* -----------------Carousel----------------- */
+#main-carousel, #carouselExampleIndicators, .carousel-inner {
+    overflow-y: hidden !important;
+}
 
 h5 {
     text-align: center;
@@ -90,7 +93,7 @@ h5 {
 .carousel-inner {
     overflow: hidden;
     width: 100%;
-    height: 450px !important;
+    /* height: 450px !important; */
 }
 
 
@@ -169,7 +172,7 @@ h5 {
         grid-template-areas:
             'one one'
             'two five'
-            'three five'
+            'three three'
             'four four'
     }
 }
@@ -220,7 +223,6 @@ h5 {
 /* -----------------End of Coming Soon-----------------*/
 
 /* -----------------Our Brands----------------- */
-
 #main-ourbrands
 /* -----------------End of Our Brands----------------- */
 
@@ -302,8 +304,9 @@ h3 {
     .testimonial-grid {
         grid-template-areas:
             'one one'
-            'two five'
-            'three five'
+            'five five'
+            'two two'
+            'three three'
             'four four'
     }
 }
