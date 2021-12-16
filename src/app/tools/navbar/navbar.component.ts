@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { VideoGamesService } from 'src/app/services/video-games.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Sale } from 'src/app/models/sale';
 import Swal from 'sweetalert2';
@@ -33,8 +34,10 @@ export class NavbarComponent implements OnInit {
   //Select only one checkbox
   check_box_type = CheckBoxType;
   currentlyChecked?: CheckBoxType;
-
-  constructor(private renderer2:Renderer2, private formBuilder: FormBuilder, private router: Router ,private videoGamesSvc:VideoGamesService){
+  //Authenticaion
+  userLogged=this.authService.getUserLogged();
+  
+  constructor(private authService: AuthService, private renderer2:Renderer2, private formBuilder: FormBuilder, private router: Router ,private videoGamesSvc:VideoGamesService){
     //Creating group for the validation of the form for checking out and payment
     this.deliveryForm = this.formBuilder.group({
     name: ['',Validators.required],
@@ -318,14 +321,15 @@ export class NavbarComponent implements OnInit {
     this.RemovePayment();
     this.RemoveDelivery();
     this.ClearAllProducts();
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Thanks for your purchase',
-      text: `Yout tracking number is ${this.trackingnumber}`,
-      showConfirmButton: true,
-      // timer: 4000
-    })
+    setTimeout(() => {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Thanks for your purchase',
+        text: `Yout tracking number is ${this.trackingnumber}`,
+        showConfirmButton: true,
+        // timer: 4000
+      })}, 500);
     //Clean the forms and the LS
     this.paymentForm.reset();
     this.deliveryForm.reset();
@@ -335,7 +339,7 @@ export class NavbarComponent implements OnInit {
   //-----Data from reactive form-----
   //Save the sale in the data base
   cardtype: any;
-  trackingnumber = "";
+  trackingnumber: any;
   postSale(){
     //Getting which card type was used
    if(this.paymenttype = 0){
@@ -379,10 +383,9 @@ export class NavbarComponent implements OnInit {
     //Save the data in the DB and show the sale tracking number
     this.videoGamesSvc.postSale(this.sale).subscribe(
       data => {console.log("success!", data);
-      this.trackingnumber = data._id},
+      this.trackingnumber = data._id;
+      console.log(this.trackingnumber)},
       error => console.error("couldn't post", error));
-      console.log(this.sale);
-      console.log(this.trackingnumber);
   }
   updateStock(){
     this.GetProduct();
@@ -394,4 +397,13 @@ export class NavbarComponent implements OnInit {
       error => console.error("couldn't post", error));
     }
   }
+
+  // Temporal
+ 
+  logout(){
+    this.authService.logout();
+  }
+
+
+
 }

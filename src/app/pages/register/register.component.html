@@ -1,0 +1,27 @@
+<section class="vh-100">
+    <div class="container py-3 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-12 col-xl-12 mt-5 mx-auto shadow p-3">
+                <div class="card shadow-2-strong contenedor">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="mb-5 fs-4 fw-bold">SING UP</h3>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" style="float: left;">Email</label>
+                            <input type="email" id="typeEmailX-2" class="form-control form-control-lg"
+                                placeholder="Ingrese su email" (ngModel)="usuario.email">
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" style="float: left;">Password</label>
+                            <input type="password" id="typePasswordX-2" class="form-control form-control-lg"
+                                placeholder="Ingrese su contraseña" (ngModel)="usuario.password">
+                        </div>
+                        <button class="btn btn-info btn-lg w-100 d-flex justify-content-center align-items-center"
+                            (click)="registrarse()" type="submit">Register</button>
+                        <label class="p-2">¿Already have an account? <a (click)="routerlogin()" class="links">Log
+                                In</a></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

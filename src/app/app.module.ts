@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+// ----------------- FIREBASE
+// import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+import { AngularFireModule} from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+
 // ----------------- DATA FETCH
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,7 +27,9 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { FormSearchComponent } from './tools/form-search/form-search.component';
 import { ContactComponent } from './pages/contact/contact.component';
-
+import { LoginComponent } from './tools/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +41,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     ProductsComponent,
     FormSearchComponent,
     ContactComponent,
+    // LoginComponent,
+    // RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +53,9 @@ import { ContactComponent } from './pages/contact/contact.component';
     MatIconModule,
     MatBadgeModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@
     Shop Cyber Week Now
 </section>
 <!---------------------------- Navbar  ---------------------------->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top mt-1">
     <div class="container-fluid">
         <!-- Logo -->
         <section class="navbar-brand d-flex justify-content-center col-2 m-0 p-0" routerLink="/home"><img
@@ -28,9 +28,20 @@
                     <mat-icon>store</mat-icon>
                     <p class="m-0 mt-1">Our Products</p>
                 </div>
-                <div class="nav-item links">
-                    <mat-icon>person_pin</mat-icon>
-                    <p class="m-0 mt-1">Sign In</p>
+                <div class="links">
+                    <div class="dropdown" *ngIf="userLogged|async as user; else btnIngresar">
+                        <div class="nav-item links" (click)="logout()">
+                            <img *ngIf="user.photoURL" [src]="user.photoURL" width="30" height="30"
+                                class="d-inline-block align-text-top photo">
+                            <p class="m-0 mt-1">Log Out</p>
+                        </div>
+                    </div>
+                    <ng-template #btnIngresar>
+                        <div class="nav-item links" routerLink="/login">
+                            <mat-icon>person_pin</mat-icon>
+                            <p class="m-0 mt-1">Sign In</p>
+                        </div>
+                    </ng-template>
                 </div>
                 <div (click)="ShowCart()" class="nav-item links me-4">
                     <mat-icon matBadge="{{itemsTotal}}" class="fs-4 test" matBadgeColor="warn">
@@ -41,6 +52,7 @@
         </div>
     </div>
 </nav>
+
 <!-------------- Cart --------------->
 <div #cartOverlay class="cart-overlay">
     <!--------------------- Cart Total Summary ----------------------->
