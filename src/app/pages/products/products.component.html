@@ -40,7 +40,7 @@
     <!------------------------------- Cards ------------------------------->
     <section id="cards_container" class="bg-light mb-5">
         <section id="data_personajes" class="bg-light mt-1"
-            *ngFor="let game of listVideoGames |  paginate: { itemsPerPage: 40, currentPage: page}">
+            *ngFor="let game of listVideoGames |  paginate: { itemsPerPage: 36, currentPage: page}">
             <div (click)=" updateModal(game, true)" class="shop-card links" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 <div><img src="{{game.thumbnail}}"></div>
